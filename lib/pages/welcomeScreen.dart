@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
 
-import 'auth/loginScreen.dart';
-import 'auth/signUpScreen.dart';
+import 'screen/loginScreen.dart';
+import 'screen/signUpScreen.dart';
 
 class welcomeScreen extends StatefulWidget {
   const welcomeScreen({Key? key}) : super(key: key);
@@ -14,6 +15,15 @@ class welcomeScreen extends StatefulWidget {
 
 class _welcomeScreenState extends State<welcomeScreen> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsFlutterBinding.ensureInitialized();
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -22,7 +32,9 @@ class _welcomeScreenState extends State<welcomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Image.network(
                 'https://i.ibb.co/3MLGsSx/logo-new.png',
                 height: 80,
@@ -62,7 +74,12 @@ class _welcomeScreenState extends State<welcomeScreen> {
                       //     left: 120, right: 120, top: 20, bottom: 20),
                       ),
                   onPressed: () {
-                    Navigator.push(context, PageTransition(type: PageTransitionType.rightToLeftPop, child: loginScreen(), childCurrent: welcomeScreen()));
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                            type: PageTransitionType.rightToLeftPop,
+                            child: loginScreen(),
+                            childCurrent: welcomeScreen()));
                     // Navigator.push(context,
                     //     MaterialPageRoute(builder: (context) => loginScreen()));
                   },
