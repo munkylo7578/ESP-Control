@@ -5,7 +5,7 @@
 5    android:versionName="1.0.0" >
 6
 7    <uses-sdk
-8        android:minSdkVersion="16"
+8        android:minSdkVersion="21"
 9        android:targetSdkVersion="33" />
 10    <!--
 11         The INTERNET permission is required for development. Specifically,
@@ -13,61 +13,87 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->D:\loginSignup\android\app\src\debug\AndroidManifest.xml:7:5-66
-15-->D:\loginSignup\android\app\src\debug\AndroidManifest.xml:7:22-64
-16
-17    <application
-18        android:name="android.app.Application"
-19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.6.0] C:\Users\admin\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
-20        android:debuggable="true"
-21        android:icon="@mipmap/ic_launcher"
-22        android:label="ecommerce" >
-23        <activity
-24            android:name="com.nnvcoders.shop.ecommerce.MainActivity"
-25            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-26            android:exported="true"
-27            android:hardwareAccelerated="true"
-28            android:launchMode="singleTop"
-29            android:theme="@style/LaunchTheme"
-30            android:windowSoftInputMode="adjustResize" >
-31
-32            <!--
-33                 Specifies an Android theme to apply to this Activity as soon as
-34                 the Android process has started. This theme is visible to the user
-35                 while the Flutter UI initializes. After that, this theme continues
-36                 to determine the Window background behind the Flutter UI.
-37            -->
-38            <meta-data
-39                android:name="io.flutter.embedding.android.NormalTheme"
-40                android:resource="@style/NormalTheme" />
+15-->D:\loginSignup\android\app\src\main\AndroidManifest.xml:3:6-68
+15-->D:\loginSignup\android\app\src\main\AndroidManifest.xml:3:23-65
+16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+16-->[:network_info_plus] D:\loginSignup\build\network_info_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-79
+16-->[:network_info_plus] D:\loginSignup\build\network_info_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-76
+17    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+17-->[:network_info_plus] D:\loginSignup\build\network_info_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:10:5-76
+17-->[:network_info_plus] D:\loginSignup\build\network_info_plus\intermediates\merged_manifest\debug\AndroidManifest.xml:10:22-73
+18
+19    <uses-feature android:name="android.hardware.wifi" />
+19-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-58
+19-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:9:19-55
+20
+21    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+21-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:14:5-79
+21-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:14:22-76
+22    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+22-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:15:5-79
+22-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:15:22-76
+23    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- TODO remove the below two permission from v1.0.0, user need to add this explicitly -->
+23-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:16:5-81
+23-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:16:22-78
+24    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+24-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:18:5-76
+24-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:18:22-73
+25    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+25-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:19:5-73
+25-->[:wifi_iot] D:\loginSignup\build\wifi_iot\intermediates\merged_manifest\debug\AndroidManifest.xml:19:22-70
+26
+27    <application
+28        android:name="android.app.Application"
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.6.0] C:\Users\munkylo\.gradle\caches\transforms-3\acbce933e4b464a5224ed377a62db1f5\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+30        android:debuggable="true"
+31        android:icon="@mipmap/ic_launcher"
+32        android:label="ESP32" >
+33        <activity
+34            android:name="com.nnvcoders.shop.ecommerce.MainActivity"
+35            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+36            android:exported="true"
+37            android:hardwareAccelerated="true"
+38            android:launchMode="singleTop"
+39            android:theme="@style/LaunchTheme"
+40            android:windowSoftInputMode="adjustResize" >
 41
-42            <intent-filter>
-43                <action android:name="android.intent.action.MAIN" />
-44
-45                <category android:name="android.intent.category.LAUNCHER" />
-46            </intent-filter>
-47        </activity>
-48        <!--
-49             Don't delete the meta-data below.
-50             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-51        -->
-52        <meta-data
-53            android:name="flutterEmbedding"
-54            android:value="2" />
-55
-56        <uses-library
-56-->[androidx.window:window:1.0.0-beta04] C:\Users\admin\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-57            android:name="androidx.window.extensions"
-57-->[androidx.window:window:1.0.0-beta04] C:\Users\admin\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-58            android:required="false" />
-58-->[androidx.window:window:1.0.0-beta04] C:\Users\admin\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-59        <uses-library
-59-->[androidx.window:window:1.0.0-beta04] C:\Users\admin\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-60            android:name="androidx.window.sidecar"
-60-->[androidx.window:window:1.0.0-beta04] C:\Users\admin\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-61            android:required="false" />
-61-->[androidx.window:window:1.0.0-beta04] C:\Users\admin\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-62    </application>
-63
-64</manifest>
+42            <!--
+43                 Specifies an Android theme to apply to this Activity as soon as
+44                 the Android process has started. This theme is visible to the user
+45                 while the Flutter UI initializes. After that, this theme continues
+46                 to determine the Window background behind the Flutter UI.
+47            -->
+48            <meta-data
+49                android:name="io.flutter.embedding.android.NormalTheme"
+50                android:resource="@style/NormalTheme" />
+51
+52            <intent-filter>
+53                <action android:name="android.intent.action.MAIN" />
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+56            </intent-filter>
+57        </activity>
+58        <!--
+59             Don't delete the meta-data below.
+60             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+61        -->
+62        <meta-data
+63            android:name="flutterEmbedding"
+64            android:value="2" />
+65
+66        <uses-library
+66-->[androidx.window:window:1.0.0-beta04] C:\Users\munkylo\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+67            android:name="androidx.window.extensions"
+67-->[androidx.window:window:1.0.0-beta04] C:\Users\munkylo\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+68            android:required="false" />
+68-->[androidx.window:window:1.0.0-beta04] C:\Users\munkylo\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+69        <uses-library
+69-->[androidx.window:window:1.0.0-beta04] C:\Users\munkylo\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+70            android:name="androidx.window.sidecar"
+70-->[androidx.window:window:1.0.0-beta04] C:\Users\munkylo\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+71            android:required="false" />
+71-->[androidx.window:window:1.0.0-beta04] C:\Users\munkylo\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+72    </application>
+73
+74</manifest>

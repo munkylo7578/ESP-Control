@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nnvcoders.shop.ecommerce">
+     <uses-permission android:name="android.permission.INTERNET" />  
    <application
-        android:label="ecommerce"
+        android:label="ESP32"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

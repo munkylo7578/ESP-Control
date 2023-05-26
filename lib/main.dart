@@ -15,6 +15,7 @@ class ecommerce extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: welcomeScreen(),
+      theme: ThemeData(primarySwatch: Colors.purple),
     );
   }
 }

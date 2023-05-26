@@ -1,6 +1,8 @@
 import 'package:ecommerce/pages/screen/homepageScreen.dart';
 import 'package:ecommerce/pages/services/user_api.dart';
+import 'package:ecommerce/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +19,7 @@ class loginScreen extends StatefulWidget {
 
 class _loginScreenState extends State<loginScreen> {
   TextEditingController _textEditingController = TextEditingController();
+
   String email = "";
   String password = "";
   @override
@@ -201,19 +204,21 @@ class _loginScreenState extends State<loginScreen> {
                                   if (_formKey.currentState!.validate()) {
                                     var response = await UserService()
                                         .login(email, password);
+                                    ;
                                     if (response.Success) {
+                                      ToastUtil().showCustom(
+                                          context,
+                                          "Đăng nhập thành công!",
+                                          Variants.success);
                                       Navigator.pushAndRemoveUntil(
                                           context,
                                           MaterialPageRoute(
                                               builder: (BuildContext context) =>
                                                   HomePageScreen()),
                                           (route) => false);
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                            content:
-                                                Text('Đăng nhập thành công')),
-                                      );
+                                    } else {
+                                      ToastUtil().showCustom(context,
+                                          response.Message, Variants.error);
                                     }
                                     // If the form is valid, display a snackbar. In the real world,
                                     // you'd often call a server or save the information in a database.

@@ -43,6 +43,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   validators: ^3.0.0
   http: ^0.13.5
+  fluttertoast: ^8.2.1
+  network_info_plus: ^3.0.3
+  device_info: ^2.0.3
+  esp_smartconfig: ^1.1.11
+  wifi_iot: ^0.3.18
 
 dev_dependencies:
   flutter_test:
@@ -59,7 +64,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-flutter:
+flutter:  
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
