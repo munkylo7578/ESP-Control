@@ -1,13 +1,12 @@
-import 'package:ecommerce/pages/screen/homepageScreen.dart';
+import 'package:ecommerce/pages/screen/CategoryScreen.dart';
 import 'package:ecommerce/pages/services/user_api.dart';
 import 'package:ecommerce/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart' as http;
-import 'package:page_transition/page_transition.dart';
 import 'package:validators/validators.dart';
 
 class loginScreen extends StatefulWidget {
@@ -73,7 +72,7 @@ class _loginScreenState extends State<loginScreen> {
                   //   width: 120,
                   // ),
                   Text(
-                    'Log In Now',
+                    'Đăng Nhập Ngay',
                     style: GoogleFonts.indieFlower(
                       textStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
@@ -82,7 +81,7 @@ class _loginScreenState extends State<loginScreen> {
                     ),
                   ),
                   Text(
-                    'Please login to continue using our app',
+                    'Hãy đăng nhập để sử dụng dịch vụ của chúng tôi',
                     style: GoogleFonts.indieFlower(
                       textStyle: TextStyle(
                           color: Colors.black.withOpacity(0.5),
@@ -132,7 +131,7 @@ class _loginScreenState extends State<loginScreen> {
                               filled: true,
                               fillColor: Colors.white,
                               labelText: "Email",
-                              hintText: 'your-email@domain.com',
+                              hintText: 'email@domain.com',
                               labelStyle: TextStyle(color: Colors.purple),
                               // suffixIcon: IconButton(
                               //     onPressed: () {},
@@ -168,13 +167,13 @@ class _loginScreenState extends State<loginScreen> {
                                 ),
                                 filled: true,
                                 fillColor: Colors.white,
-                                labelText: "Password",
+                                labelText: "Mật khẩu",
                                 hintText: '*********',
                                 labelStyle: TextStyle(color: Colors.purple),
                               ),
                               validator: (value) {
                                 if (value!.isEmpty && value!.length < 5) {
-                                  return 'Enter a valid password';
+                                  return 'Mật khẩu không đúng định dạng';
                                   {
                                     return null;
                                   }
@@ -205,7 +204,11 @@ class _loginScreenState extends State<loginScreen> {
                                     var response = await UserService()
                                         .login(email, password);
                                     ;
-                                    if (response.Success) {
+
+                                    var box = Hive.box('userInfo');
+                                    if (response.success) {
+                                      box.put(
+                                          'token', response.data["tokenId"]);
                                       ToastUtil().showCustom(
                                           context,
                                           "Đăng nhập thành công!",
@@ -214,11 +217,11 @@ class _loginScreenState extends State<loginScreen> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (BuildContext context) =>
-                                                  HomePageScreen()),
+                                                  CategoryScreen()),
                                           (route) => false);
                                     } else {
                                       ToastUtil().showCustom(context,
-                                          response.Message, Variants.error);
+                                          response.message, Variants.error);
                                     }
                                     // If the form is valid, display a snackbar. In the real world,
                                     // you'd often call a server or save the information in a database.
@@ -229,7 +232,7 @@ class _loginScreenState extends State<loginScreen> {
                                   //         builder: (context) => loginScreen()));
                                 },
                                 child: Text(
-                                  'Log In',
+                                  'Đăng nhập',
                                   style: TextStyle(fontSize: 17),
                                 ))
                             : Container(),
@@ -266,7 +269,7 @@ class _loginScreenState extends State<loginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'You have\'t any account?',
+                        'Bạn chuawa có tài khoản?',
                         style: TextStyle(
                           color: Colors.black.withOpacity(0.6),
                         ),
@@ -274,7 +277,7 @@ class _loginScreenState extends State<loginScreen> {
                       TextButton(
                         onPressed: () {},
                         child: Text(
-                          'Sign Up',
+                          'Đăng Kí',
                           style: TextStyle(
                               color: Colors.purple,
                               fontWeight: FontWeight.w500),

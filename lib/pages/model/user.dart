@@ -1,15 +1,19 @@
 class User {
-  final Map<String, dynamic> Data;
-  final bool Success;
-  final String? Message;
-  const User(
-      {required this.Data, required this.Success, required this.Message});
+  final Map<String, dynamic> data;
+  final bool success;
+  final String? message;
+
+  const User({
+    required this.data,
+    required this.success,
+    required this.message,
+  });
 
   factory User.fromJson(Map<String, dynamic> json) {
-    if (!json["Success"]) {
-      return User(Data: {}, Success: false, Message: json["Message"]);
-    }
     return User(
-        Data: json["Data"], Success: json["Success"], Message: json["Message"]);
+      data: json['Data'] ?? {},
+      success: json['Success'],
+      message: json['Message'],
+    );
   }
 }

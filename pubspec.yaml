@@ -48,6 +48,17 @@ dependencies:
   device_info: ^2.0.3
   esp_smartconfig: ^1.1.11
   wifi_iot: ^0.3.18
+  web_socket_channel: ^2.4.0
+  flutter_bluetooth_serial: ^0.4.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  open_settings: ^2.0.2
+  path_parsing: ^1.0.1
+  image: ^4.0.17
+  sprintf: ^7.0.0
+  path_provider: ^2.1.0
+  flutter_speed_dial: ^7.0.0
+  image_picker: ^1.0.4
 
 dev_dependencies:
   flutter_test:

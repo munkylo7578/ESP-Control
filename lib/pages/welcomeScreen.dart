@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
 
-import 'screen/loginScreen.dart';
-import 'screen/signUpScreen.dart';
+import 'screen/LoginScreen.dart';
+import 'screen/SignUpScreen.dart';
 
 class welcomeScreen extends StatefulWidget {
   const welcomeScreen({Key? key}) : super(key: key);
@@ -66,7 +66,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0)),
-                      backgroundColor: Colors.purple,
+                      backgroundColor: Theme.of(context).primaryColor,
                       padding: EdgeInsets.symmetric(
                           horizontal: MediaQuery.of(context).size.width / 3.3,
                           vertical: 20)
@@ -107,7 +107,8 @@ class _welcomeScreenState extends State<welcomeScreen> {
                     child: Text(
                       'Sign Up',
                       style: TextStyle(
-                          color: Colors.purple, fontWeight: FontWeight.w500),
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.w500),
                     ),
                   )
                 ],
